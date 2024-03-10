@@ -1,0 +1,50 @@
+
+  /* Scroller styling */
+  .gradient{
+
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  
+  }
+  .cards{
+  
+  margin-top: 20px;
+  }
+  .scroller {
+    height: 5em;
+    line-height: 2.5em;
+    position: relative;
+    overflow: hidden;
+    width: 20em;
+  }
+  .scroller > .span {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    animation: slide 3s infinite;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: #ac0000;
+    
+  }
+  @keyframes slide {
+    0% {
+      top: 0;
+    }
+    25% {
+      top: -1.2em;
+    }
+    50% {
+      top: -2.4em;
+    }
+    75% {
+      top: -3.6em;
+    }
+  }
+  .left span{
+width: 60%;
+  }
+.cards{
+
+    text-align: center;
+  }

@@ -1,0 +1,21 @@
+    .footer{
+    background-color: black;
+    position: relative;
+    }
+    .col-lg-4{
+      color: #ac0000;
+    }
+    i{
+      color: #ac0000;
+    }
+    .form-body{
+      position: relative;
+    }
+    
+  .All1 img{
+
+    background-color: #ac0000;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+  }
