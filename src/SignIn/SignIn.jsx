@@ -1,20 +1,36 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import './SignIn.css'
 import { useFormik } from 'formik'
 import axios from 'axios';
 import diamond from './wp1945909.jpg'
-export default function Regestier() {  
+import { Await, Router } from 'react-router-dom';
+import { motion } from 'framer-motion';
+export default function Regestier() {
+  const [IsLoding, setIsLoding] = useState(true)  
+  const [props, setprops] = useState([])  
+
  async function handelesignin(values){
+  setIsLoding(false)
   const users= await axios.post(`http://localhost:3007/signin`,values)
-  console.log(users.data);
    if (users.data=='sucsess'){
-    console.log(values);
+    setIsLoding(true)
+    await setprops(values)
     alert('Welcome Mr'+values.email)
     window.location.href='/movies/Home'
    }else{
+    setIsLoding(true)
     alert('Password Or Email Is Wrong')
    }
     }
+
+    let SendProps = useCallback(()=>{
+Router.push({
+pathname:"/movies/Home",
+query:{props}
+})
+
+
+    },[props])
  let formik=useFormik({
     initialValues:{
     email:'',
@@ -22,7 +38,10 @@ export default function Regestier() {
     },onSubmit:handelesignin
     });
   return <>
-  <div className="All1">
+  <motion.div className="All1" 
+  initial={{width:0}}
+    animate={{width:"100%"}}
+    exit={{x:window.innerWidth,transition:{duration:0.1}}}>
   <div classNameName="container">  
 <img className='' src={diamond} alt="" />
 
@@ -49,14 +68,19 @@ export default function Regestier() {
               <div className="invalid-feedback">Please confirm that the entered data are all correct!</div>
              </div>
                  <div className="form-button mt-3">
-                     <button id="submit" type="submit" className="btn btn-danger">Signin</button>
+                  {IsLoding?<button id="submit" type="submit" className="btn btn-danger">Signin</button>
+                  :
+                  <button className="btn btn-danger"> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i></button>
+                  }
+                     
+
                  </div>
              </form>
          </div>
      </div>
  </div>
 </div></div>
-  </div>
+  </motion.div>
 
 <footer className="footer w-100 text-white text-center text-lg-left  text-white text-center text-lg-start">
 <div className="container p-4">

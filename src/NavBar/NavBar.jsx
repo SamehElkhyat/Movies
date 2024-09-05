@@ -25,7 +25,7 @@ Movies<br/>
 </div>
 </div>
 <div className="nav right">
-<Link to="" className="nav-link active"><span className="nav-link-span"><span className="u-nav">Home</span></span></Link>
+<Link to="Movies" className="nav-link active"><span className="nav-link-span"><span className="u-nav">Movies</span></span></Link>
 <Link to="Regestier" className="nav-link"><span className="nav-link-span"><span className="u-nav">Sign In</span></span></Link>
 <Link to="SignUp" className="nav-link"><span className="nav-link-span"><span className="u-nav">Sign Up</span></span></Link>
 </div>

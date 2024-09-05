@@ -1,0 +1,22 @@
+.menu{
+width: 50vw;
+height: 100vh;
+position: relative;
+left: 0%;
+transition: all 0s;
+
+}
+
+.toogle{
+
+width: 50vw;
+
+height: 100vh;
+
+position: relative;
+
+left: -100%;
+
+transition: all 0s;
+
+}

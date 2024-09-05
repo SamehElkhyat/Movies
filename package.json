@@ -14,6 +14,7 @@
     "cors": "^2.8.5",
     "footer": "^1.0.0",
     "formik": "^2.4.5",
+    "framer-motion": "^11.1.7",
     "git": "^0.1.5",
     "mdb-react-ui-kit": "^7.1.0",
     "nodemailer": "^6.9.8",

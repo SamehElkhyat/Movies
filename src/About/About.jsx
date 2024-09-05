@@ -2,12 +2,16 @@ import React from "react";
 import axios from "axios";
 import "./About.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { motion} from "framer-motion";
+import Sidebarr from '../Sidebarr/sidebar'
+
+
 export default function Home() {
   const [trendingmovies, setTrendingmovie] = useState([]);
-  const [Favouritemovies, setFavouritemovie] = useState([]);
   const [page, setPagination] = useState(1);
-  let movie = [];
+  const [showSide, setShowside] = useState(false);
+  
   const plusPage = () => {
     setPagination(page + 1);
     if (page < 1) {
@@ -16,6 +20,7 @@ export default function Home() {
       getTrendingMovie(page);
     }
   };
+
   const minusPage = () => {
     setPagination(page - 1);
     if (page < 1) {
@@ -24,61 +29,63 @@ export default function Home() {
       getTrendingMovie(page);
     }
   };
+
   async function getTrendingMovie(page = 1) {
     let { data } = await axios.get(
-    `https://api.themoviedb.org/3/trending/movie/week?api_key=f1aca93e54807386df3f6972a5c33b50&page=${page}`
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=f1aca93e54807386df3f6972a5c33b50&page=${page}`
     );
     setTrendingmovie(data.results, data.page);
     console.log(data.page);
   }
-  const AddFavourite = (index) => {
-    trendingmovies.map((moviie, i) => {
-      if (index == i) {
-        console.log(movie);
-      }
-    });
-  };
-  useEffect(() => {
-    getTrendingMovie();
-  }, []);
+
+useEffect(() => {
+    
+    getTrendingMovie(page);
+
+  }, [page]);
   return (
     <>
-      <div className="all">
-        <div className="row w-100">
-          {trendingmovies.map((movie, index) => (
-            <div className="wrapper col-md-2">
-              <img
-                className="w-100"
-                src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
-                alt=""
-              />
-              <div className="info bg-dark">
-                <h6>{movie.title}</h6>
-                <Link to={"http://www.rottentomatoes.com/m/" + movie.title}>
-                  <button className="reviwes">reviwes</button>
-                </Link>
-                <h3 className="warning">
-                  <i
-                    onClick={() => {
-                      AddFavourite(index);
-                    }}
-                    className="fa-regular fa-star"
-                  ></i>
-                  {movie.vote_average}
-                </h3>
+
+      <div className="about">
+        
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 5, transition: { duration: 1.7 } }}
+          exit={{ opacity: 0 }}
+          className="all"
+        >
+          <div className="row w-100">
+            {trendingmovies.map((movie, index) => (
+              <div className="wrapper col-md-2">
+                <img
+                  className="w-100"
+                  src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
+                  alt=""
+                />
+                <div className="info bg-dark">
+                  <h6>{movie.title.split(" ").slice(0, 4).join(" ")}</h6>
+                  <Link to={"http://www.rottentomatoes.com/m/" + movie.title}>
+                    <button className="reviwes">reviwes</button>
+                  </Link>
+                  <h3 className="warning">
+                    <i className="fa-regular fa-star"></i>
+                    {String(movie.vote_average).split("").slice(0, 3).join("")}
+                  </h3>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        <div className="fontAwesome">
-          <button onClick={plusPage} className="buttom">
-            Next Page
-          </button>
-          <button onClick={minusPage} className="buttom">
-            Previous Page
-          </button>
-        </div>
+            ))}
+          </div>
+          <div className="fontAwesome">
+            <button onClick={plusPage} className="buttom">
+              Next Page
+            </button>
+            <button onClick={minusPage} className="buttom">
+              Previous Page
+            </button>
+          </div>
+        </motion.div>
       </div>
+
       <footer className="w-100 text-white text-center text-lg-left text-white text-center text-lg-start">
         <div className="container p-4">
           <div className="row mt-4">

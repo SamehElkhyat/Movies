@@ -4,12 +4,27 @@ import diamond1 from './e647e7704a63917cd4799d74a6aafbb9.jpg'
 import diamond2 from './e647e7704a63917cd4799d74a6aafbb9.jpg'
 import diamond from './wp1945909.jpg'
 import { Link } from 'react-router-dom';
+import { motion, useScroll, useTime, useTransform} from "framer-motion";
+
 
 export default function App() {
+
+    const { scrollYProgress } = useScroll();
+    const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
+    const time = useTime()
+    const rotate = useTransform(
+      time,
+      [0, 4000], // For every 4 seconds...
+      [0, 0], // ...rotate 360deg
+      { clamp: false }
+    )
+
   return <>
     <img className='imag'src={diamond} alt=""/>
 
-  <div className="section-fluid-main">
+  <motion.div  style={{ rotate }} initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{opacity:0,transition:{duration:0.1}}} className="section-fluid-main">
   <h1 className='center'> <span className='f'>Hello To</span><span className='g'>Trending Movie</span><span className='full'>WepSite</span></h1>
       <div className="section-row">
         <div className="section-col">
@@ -34,7 +49,7 @@ export default function App() {
           <h2>SignIn</h2>
         </div>
       </div>  
-    </div> 
+    </motion.div> 
     <footer className="footer w-100 text-white text-center text-lg-left text-white text-center text-lg-start">
 <div className="container p-4">
 

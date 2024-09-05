@@ -39,9 +39,11 @@ button:focus,
 input:focus {
   outline: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 /*-------------Layout-------------*/
 body {
   line-height: 1.5em;
@@ -49,9 +51,27 @@ body {
   margin: 20;
   font-weight: 400;
 }
+
 section {
   height: 100vh;
 }
+
+#home {
+  background-color: #ddd;
+}
+
+#about {
+  background-color: #aaa;
+}
+
+#work {
+  background-color: #888;
+}
+
+#contact {
+  background-color: #666;
+}
+
 /*-------------Helpers-------------*/
 .skew {
   @include skew;
@@ -114,7 +134,7 @@ span.gradient {
     animation-name: logo-hover;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(0.27, 0.57, 0.31, 0.85);
+    animation-timing-function: cubic-bezier(0.17, 0.57, 0.31, 0.85);
   }
 }
 
@@ -173,13 +193,12 @@ Link:hover {
   }
 
   .right {
-    font-size: 15x;
     overflow: hidden;
     flex-direction: row;
     justify-content: flex-end;
     position: relative;
-    left: 1.1em;
-    height: 100%;
+    left: 1.5em;
+    height: auto;
   }
 
   .btn-nav {

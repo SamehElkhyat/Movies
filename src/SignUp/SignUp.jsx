@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import './SignUp.css'
 import diamond from './wp1945909.jpg'
 import axios from 'axios';
+import { motion } from "framer-motion";
 export default function SignUp() {
   async function handeleSignUp(values){
   const value= await axios.post(`http://localhost:3007/signup`,values)
@@ -23,7 +24,11 @@ let formik=useFormik({
     },onSubmit:handeleSignUp
   });
   return <>
-  <div className="All1">
+  <motion.div className="All1"
+  initial={{width:0}}
+  animate={{width:"100%"}}
+  exit={{x:window.innerWidth,transition:{duration:5.1,delay:1}}}
+    >
 <img className='' src={diamond} alt="" />
   <div className="form-body">
   <div className="form-holder">
@@ -74,7 +79,7 @@ let formik=useFormik({
             </div>
         </div>
     </div>
-  </div>
+  </motion.div>
  
     <footer className="footer w-100 text-white text-center text-lg-left text-white text-center text-lg-start">
 <div className="container p-4">

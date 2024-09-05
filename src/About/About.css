@@ -4,7 +4,7 @@ background-color: black;
 .col-lg-4{
   color: #ac0000;
 }
-.all{
+.about{
   position: relative;
   color: white;
   --s: 100px; /* control the size */
