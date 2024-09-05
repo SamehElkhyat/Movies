@@ -20,9 +20,8 @@ export default function App() {
     )
 
   return <>
-    <img className='imag'src={diamond} alt=""/>
-
-  <motion.div  style={{ rotate }} initial={{opacity:0}}
+      
+  <motion.div style={{ rotate }} initial={{opacity:0}}
     animate={{opacity:1}}
     exit={{opacity:0,transition:{duration:0.1}}} className="section-fluid-main">
   <h1 className='center'> <span className='f'>Hello To</span><span className='g'>Trending Movie</span><span className='full'>WepSite</span></h1>
@@ -30,7 +29,7 @@ export default function App() {
         <div className="section-col">
           <div className="section">
             <div className="section-in">
-            <Link to="SignUp"><img src={diamond1}alt=""/></Link>
+            <Link to="SignUp"><img className='w-50' src={diamond1}alt=""/></Link>
             </div>
           </div>
         </div>
@@ -40,7 +39,7 @@ export default function App() {
         <div className="section-col">
           <div className="section">
             <div className="section-in">
-              <Link to="Regestier"> <img src={diamond2} alt=""/></Link>
+              <Link to="Regestier"> <img className='w-50' src={diamond2} alt=""/></Link>
              
             </div>
           </div>

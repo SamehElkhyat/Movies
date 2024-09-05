@@ -11,7 +11,7 @@ export default function App() {
 <header id="nav-wrapper">
 <nav id="nav">
 <div className="nav left">
-<span className="gradient skew"><h1 className="logo un-skew"><Link to="">Trending Movie</Link></h1></span>
+<span className="gradient skew"><h1 className="logo un-skew"><Link className='w-100' to="">Trending Movie</Link></h1></span>
 <button id="menu" className="btn-nav"><span className="fas fa-bars"></span></button>
 </div>
 <div className="cards">

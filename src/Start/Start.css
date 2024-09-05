@@ -5,6 +5,7 @@
 }
 .back{
   background-color: black;
+  position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -27,16 +28,16 @@ p{
   margin: 0;
 }
 .section-fluid-main{
-
   position: relative;
   display: block;
   width: 100%;
+  height: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 1140px;
-  padding: 100px 0;
+  background-color: #000000;
+
 }
 .section-row{
   position: relative;
@@ -44,8 +45,7 @@ p{
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+ 
 }
 .section-row:hover .section-col{
   opacity: 0.1;
@@ -79,16 +79,19 @@ p{
 }
 .section-in img{
   width: 100%;
-  height: auto;
+  height: 100%;
   transition: transform 250ms linear;
 }
 .section-col:hover .section-in img{
   transform: scale(1.1) rotate(-3deg);
 }
 .imag{
-  position: absolute;
+  position: relative;
   left:0;
+  bottom: 0;
+  top: 0;
   width:100%;
+  height: 100%;
 }
 .hover-text{
   position:absolute;
